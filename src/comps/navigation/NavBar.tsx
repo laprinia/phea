@@ -13,7 +13,10 @@ import { ThreeDCubeSphere, InfoCircle } from "tabler-icons-react";
 
 function NavBar() {
   return (
-    <Grid align="start" justify="space-around" sx={{ background: "#27282c" }}>
+    <Grid
+      justify="space-around"
+      sx={{ background: "#27282c", width: "100.3%" }}
+    >
       <Grid.Col span={2}>
         <Space h={"xs"} />
         <Group spacing="xs" align="center" position="left">

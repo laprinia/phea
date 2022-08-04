@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import { MantineProvider } from "@mantine/core";
-import Viewport from "./Viewport";
-import NavBar from "./comps/nav/NavBar";
+import { MantineProvider, Space } from "@mantine/core";
+import CardSection from "./comps/view/CardSection";
+import NavBar from "./comps/navigation/NavBar";
+import Layout from "./comps/layout/Layout";
 
 function App() {
   return (
@@ -12,7 +13,10 @@ function App() {
       theme={{ colorScheme: "dark" }}
     >
       <NavBar />
-      <Viewport />
+      <Layout title={"marching cubes viz"}>
+        <Space h="sm" />
+        <CardSection />
+      </Layout>
     </MantineProvider>
   );
 }
