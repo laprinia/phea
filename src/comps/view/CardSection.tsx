@@ -7,7 +7,7 @@ function CardSection() {
     <Card
       shadow="sm"
       p="lg"
-      radius="md"
+      radius="xs"
       withBorder
       sx={{ position: "relative", width: "98vw", height: "70vh" }}
     >

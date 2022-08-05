@@ -9,13 +9,12 @@ import {
   Button,
   Divider,
 } from "@mantine/core";
-import { ThreeDCubeSphere, InfoCircle } from "tabler-icons-react";
 
 function NavBar() {
   return (
     <Grid
       justify="space-around"
-      sx={{ background: "#27282c", width: "100.3%" }}
+      sx={{ background: "#362B2B", width: "100.4vw" }}
     >
       <Grid.Col span={2}>
         <Space h={"xs"} />
@@ -25,7 +24,7 @@ function NavBar() {
             src="https://images.emojiterra.com/twitter/v14.0/512px/1fab7.png"
             height={30}
           />
-          <Text size="md" weight={700}>
+          <Text size="xl" weight={900} color="champagnePink">
             phea
           </Text>
           <Divider
@@ -42,16 +41,22 @@ function NavBar() {
             orientation="vertical"
           />
           <Button
-            variant="subtle"
-            color="green"
-            leftIcon={<ThreeDCubeSphere />}
+            variant="outline"
+            radius="xs"
+            color="portlandOrange"
+            uppercase
           >
             Demo
           </Button>
-          <Button variant="subtle" color="green" leftIcon={<InfoCircle />}>
+          <Button
+            variant="outline"
+            radius="xs"
+            color="portlandOrange"
+            uppercase
+          >
             About
           </Button>
-          <Badge color="green" size="lg">
+          <Badge color="portlandOrange" size="lg">
             Dev
           </Badge>
           <Space w="xs" />
