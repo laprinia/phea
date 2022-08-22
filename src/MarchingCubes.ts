@@ -1,6 +1,6 @@
 import { edgeTable, triangulationTable } from "./util/table-data";
-
-export class MarchingCubes {
+import * as THREE from "three";
+export default class MarchingCubes {
   private xMax: number;
   private yMax: number;
   private zMax: number;
@@ -192,7 +192,10 @@ export class MarchingCubes {
         }
       }
     }
-    //geometry.setAttribute('position', new THREE.BufferAttribute(this.vertices.slice(0, vIdx), 3));
+    geometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(this.vertices.slice(0, vIdx), 3)
+    );
     geometry.computeVertexNormals();
 
     geometry.attributes.position.needsUpdate = true;
