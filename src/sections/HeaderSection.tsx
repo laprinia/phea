@@ -16,7 +16,6 @@ function HeaderSection() {
       spacing={1}
       sx={{
         paddingTop: "2px",
-        paddingLeft: "11px",
         paddingRight: "10px",
         position: "sticky",
         width: "18.1vw",

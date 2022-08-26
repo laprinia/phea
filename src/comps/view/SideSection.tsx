@@ -19,15 +19,18 @@ function SideSection() {
       align="start"
       spacing={1}
       sx={{
+        margin: "10px",
         position: "absolute",
         top: 0,
         left: "78.3vw",
-        width: "19.5vw",
+        width: "16.5vw",
+        height: "65vh",
+        boxSizing: "border-box",
       }}
     >
       <Space h={1} />
       <HeaderSection />
-      <ScrollArea style={{ height: "59.5vh", width: "19.1vw" }}>
+      <ScrollArea style={{ height: "60.5vh", width: "100%" }} type={"scroll"}>
         <SimplexSection />
       </ScrollArea>
     </Stack>

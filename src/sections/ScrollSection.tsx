@@ -8,10 +8,6 @@ const ScrollSection: React.FC<PropsWithChildren<Props>> = ({
   title,
   children,
 }) => {
-  return (
-    <Stack spacing="xl" sx={{ padding: "10px" }}>
-      {children}
-    </Stack>
-  );
+  return <Stack spacing="xl">{children}</Stack>;
 };
 export default ScrollSection;

@@ -10,7 +10,7 @@ function CardSection() {
       p="lg"
       radius="xs"
       withBorder
-      sx={{ position: "relative", width: "98vw", height: "70vh" }}
+      sx={{ width: "98vw", height: "70vh" }}
     >
       <Card.Section withBorder sx={{ width: "78vw", height: "70vh" }}>
         <Viewport />

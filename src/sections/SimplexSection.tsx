@@ -11,7 +11,7 @@ function SimplexSection() {
           defaultValue={2}
           min={2}
           max={8}
-          sx={{ width: "98%" }}
+          sx={{ width: "99%", boxSizing: "border-box" }}
           size="sm"
           radius="sm"
           showLabelOnHover={true}
@@ -30,7 +30,7 @@ function SimplexSection() {
           min={0}
           max={1}
           step={0.1}
-          sx={{ width: "98%" }}
+          sx={{ width: "99%", boxSizing: "border-box" }}
           size="sm"
           radius="sm"
           showLabelOnHover={true}
@@ -48,7 +48,7 @@ function SimplexSection() {
           defaultValue={1}
           min={1}
           max={10}
-          sx={{ width: "98%" }}
+          sx={{ width: "99%" }}
           size="sm"
           radius="sm"
           showLabelOnHover={true}
@@ -66,7 +66,7 @@ function SimplexSection() {
           defaultValue={1}
           min={4}
           max={20}
-          sx={{ width: "98%" }}
+          sx={{ width: "99%" }}
           size="sm"
           radius="sm"
           showLabelOnHover={true}
@@ -84,7 +84,7 @@ function SimplexSection() {
           defaultValue={1}
           min={1}
           max={10}
-          sx={{ width: "98%" }}
+          sx={{ width: "99%" }}
           size="sm"
           radius="sm"
           showLabelOnHover={true}
