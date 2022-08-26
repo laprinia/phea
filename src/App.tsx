@@ -38,6 +38,18 @@ function App() {
             "#faefe6",
             "#faefe6",
           ],
+          pistachio: [
+            "#EFF7ED",
+            "#D2EACD",
+            "#B5DCAC",
+            "#97CF8C",
+            "#7AC16C",
+            "#5DB34C",
+            "#4A903C",
+            "#386C2D",
+            "#7AC16C",
+            "#13240F",
+          ],
         },
         fontFamily: "Modernist",
       }}

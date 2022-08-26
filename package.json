@@ -5,6 +5,7 @@
   "dependencies": {
     "@mantine/core": "^5.0.2",
     "@mantine/hooks": "^5.0.2",
+    "@radix-ui/react-icons": "^1.1.1",
     "@react-three/drei": "^9.19.5",
     "@react-three/fiber": "^8.6.0",
     "@testing-library/jest-dom": "^5.16.4",
