@@ -13,6 +13,7 @@ export type SimplexValues = {
   detailPerOctave: number;
   floorOffset: number;
   noiseWeight: number;
+  terracingLevel: number;
 };
 export type MarchingResult = {
   terrainVertices: Float32Array;

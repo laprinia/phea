@@ -34,13 +34,14 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
     let yMax = Math.floor(height / (2 * sampleSize));
     let zMax = Math.floor(depth / (2 * sampleSize));
     fieldBuffer = new Float32Array((xMax + 1) * (yMax + 1) * (zMax + 1) * 8);
-    let octaves = 100;
+    let octaves = 6;
     let detailPerOctave = 2;
     let persistencePerOctave = 0.5;
-    let noiseScale = 2;
-    let noiseWeight = 9;
-    let floorOffset = 5;
-    let weightMultiplier = 1.6;
+    let noiseScale = 0.94;
+    let noiseWeight = 9.19;
+    let floorOffset = 3.92;
+    let weightMultiplier = 1.89;
+    let terracingLevel = 2;
     let simplex = new SimplexNoise();
     setHeightValues(
       [xMax, yMax, zMax],
@@ -54,6 +55,7 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
         detailPerOctave,
         floorOffset,
         noiseWeight,
+        terracingLevel,
       },
       setField
     );

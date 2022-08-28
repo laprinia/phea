@@ -28,7 +28,8 @@ export const getHeightValues = (
 
   return (
     -(array[1] + simplexValues.floorOffset) +
-    computedNoise * simplexValues.noiseWeight
+    computedNoise * simplexValues.noiseWeight +
+    (array[1] % simplexValues.terracingLevel)
   );
 };
 export const setHeightValues = (
