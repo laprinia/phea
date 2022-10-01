@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { TerrainData } from "../../util/types";
 import * as THREE from "three";
 import SimplexNoise from "simplex-noise";
@@ -6,6 +6,10 @@ import { useFrame } from "@react-three/fiber";
 import { setHeightValues } from "../../util/height-functions";
 import { getMarchedResult } from "../../util/marching-functions";
 import { ISO_LEVEL } from "../../util/constants";
+import heightFragmentShader from "../../shaders/heightFragmentShader";
+import { useTexture } from "@react-three/drei";
+import grad from "./gradient.png";
+import heightVertexShader from "../../shaders/heightVertexShader";
 
 interface GeneratedTerrainProps {
   terrainData: TerrainData;
@@ -16,6 +20,7 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
   const [terrainVertices, setTerrainVertices] = useState(new Float32Array());
   const [vertexIndex, setVertexIndex] = useState(0);
   const [requiresUpdate, setRequiresUpdate] = useState(false);
+  const gradientMap = useTexture(grad);
   const setField = (
     arr2: number[],
     i: number,
@@ -28,6 +33,24 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
   const getField = (arr2: number[], i: number, j: number, k: number) => {
     return fieldBuffer[i * arr2[0] * arr2[2] + k * arr2[2] + j];
   };
+
+  const uniforms = useMemo(() => {
+    console.log(gradientMap.sourceFile);
+    return {
+      u_gradient: {
+        type: "t",
+        value: gradientMap,
+      },
+      u_yMin: {
+        type: "f",
+        value: 3.92,
+      },
+      u_yMax: {
+        type: "f",
+        value: Math.floor(height / (2 * sampleSize)),
+      },
+    };
+  }, [gradientMap]);
 
   useEffect(() => {
     let xMax = Math.floor(width / (2 * sampleSize));
@@ -96,12 +119,17 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
           itemSize={3}
         />
       </bufferGeometry>
-      <meshPhongMaterial
-        attach="material"
-        color="#ede0bb"
-        flatShading={true}
-        shininess={66}
-        side={THREE.DoubleSide}
+      {/*<meshPhongMaterial*/}
+      {/*  attach="material"*/}
+      {/*  color="#ede0bb"*/}
+      {/*  flatShading={true}*/}
+      {/*  shininess={66}*/}
+      {/*  side={THREE.DoubleSide}*/}
+      {/*/>*/}
+      <shaderMaterial
+        vertexShader={heightVertexShader}
+        fragmentShader={heightFragmentShader}
+        uniforms={uniforms}
       />
     </mesh>
   );

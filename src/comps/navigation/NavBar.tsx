@@ -9,22 +9,23 @@ import {
   Button,
   Divider,
 } from "@mantine/core";
-
+import lotus from "../../public/lotus-alt.png";
 function NavBar() {
   return (
     <Grid
       justify="space-around"
-      sx={{ background: "#362B2B", width: "100.4vw" }}
+      sx={{ background: "#171825", width: "100.4vw" }}
     >
       <Grid.Col span={2}>
         <Space h={"xs"} />
         <Group spacing="xs" align="center" position="left">
           <Space w="xs" />
           <Image
-            src="https://images.emojiterra.com/twitter/v14.0/512px/1fab7.png"
+            src="https://i.postimg.cc/P5Yz47gr/lotus-alt.png"
             height={30}
+            withPlaceholder
           />
-          <Text size="xl" weight={900} color="champagnePink">
+          <Text size="xl" weight={900} color="blueGray">
             phea
           </Text>
           <Divider
@@ -40,23 +41,13 @@ function NavBar() {
             sx={{ height: "24px", alignSelf: "center" }}
             orientation="vertical"
           />
-          <Button
-            variant="outline"
-            radius="xs"
-            color="portlandOrange"
-            uppercase
-          >
+          <Button variant="outline" radius="xs" color="blueGray" uppercase>
             Demo
           </Button>
-          <Button
-            variant="outline"
-            radius="xs"
-            color="portlandOrange"
-            uppercase
-          >
+          <Button variant="outline" radius="xs" color="blueGray" uppercase>
             About
           </Button>
-          <Badge color="portlandOrange" size="lg">
+          <Badge color="blueGray" size="lg">
             Dev
           </Badge>
           <Space w="xs" />

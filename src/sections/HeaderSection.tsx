@@ -35,7 +35,7 @@ function HeaderSection() {
 
       <HoverCard width={100} shadow="md">
         <HoverCard.Target>
-          <ActionIcon variant="subtle" color="portlandOrange" size="xl">
+          <ActionIcon variant="subtle" color="blueGray" size="xl">
             <SymbolIcon />
           </ActionIcon>
         </HoverCard.Target>

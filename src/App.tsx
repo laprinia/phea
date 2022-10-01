@@ -50,6 +50,18 @@ function App() {
             "#7AC16C",
             "#13240F",
           ],
+          blueGray: [
+            "#EFF1F6",
+            "#D1D7E5",
+            "#B4BDD5",
+            "#96A3C4",
+            "#7989B4",
+            "#5B6FA4",
+            "#495983",
+            "#374262",
+            "#B4BDD5",
+            "#121621",
+          ],
         },
         fontFamily: "Modernist",
       }}

@@ -15,7 +15,7 @@ function SimplexSection() {
           size="sm"
           radius="sm"
           showLabelOnHover={true}
-          color="pistachio"
+          color="blueGray"
           marks={[
             { value: 2, label: "2" },
             { value: 5, label: "5" },
@@ -34,7 +34,7 @@ function SimplexSection() {
           size="sm"
           radius="sm"
           showLabelOnHover={true}
-          color="pistachio"
+          color="blueGray"
           marks={[
             { value: 0, label: "0" },
             { value: 0.5, label: "0.5" },
@@ -52,7 +52,7 @@ function SimplexSection() {
           size="sm"
           radius="sm"
           showLabelOnHover={true}
-          color="pistachio"
+          color="blueGray"
           marks={[
             { value: 1, label: "1" },
             { value: 5, label: "5" },
@@ -70,7 +70,7 @@ function SimplexSection() {
           size="sm"
           radius="sm"
           showLabelOnHover={true}
-          color="pistachio"
+          color="blueGray"
           marks={[
             { value: 4, label: "4" },
             { value: 12, label: "12" },
@@ -88,7 +88,7 @@ function SimplexSection() {
           size="sm"
           radius="sm"
           showLabelOnHover={true}
-          color="pistachio"
+          color="blueGray"
           marks={[
             { value: 1, label: "1" },
             { value: 5, label: "5" },
