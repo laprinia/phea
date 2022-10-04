@@ -5,7 +5,7 @@ import GeneratedTerrain from "../meshes/GeneratedTerrain";
 
 function Viewport() {
   return (
-    <Canvas style={{ background: "#4d4c4c" }}>
+    <Canvas style={{ background: "#0e0e0e" }}>
       <PerspectiveCamera makeDefault position={[70, 45, 25]} />
       <OrbitControls position={[15, 20, 20]} />
       <ambientLight intensity={0.2} position={[0, 45, 25]} />

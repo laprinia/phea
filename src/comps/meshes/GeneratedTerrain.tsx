@@ -35,19 +35,23 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
   };
 
   const uniforms = useMemo(() => {
-    console.log(gradientMap.sourceFile);
+    console.log(terrainVertices);
     return {
       u_gradient: {
         type: "t",
         value: gradientMap,
       },
-      u_yMin: {
+      u_boundsY: {
         type: "f",
-        value: 3.92,
+        //yMax - yMin(floorset)
+        //TODO check for changes on rerender
+        value: Math.floor(height / (2 * sampleSize)) - 3.92,
       },
-      u_yMax: {
+      u_colorOffset: {
         type: "f",
-        value: Math.floor(height / (2 * sampleSize)),
+        //yMax - yMin(floorset)
+        //TODO make customizable
+        value: 2,
       },
     };
   }, [gradientMap]);
@@ -119,13 +123,6 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
           itemSize={3}
         />
       </bufferGeometry>
-      {/*<meshPhongMaterial*/}
-      {/*  attach="material"*/}
-      {/*  color="#ede0bb"*/}
-      {/*  flatShading={true}*/}
-      {/*  shininess={66}*/}
-      {/*  side={THREE.DoubleSide}*/}
-      {/*/>*/}
       <shaderMaterial
         vertexShader={heightVertexShader}
         fragmentShader={heightFragmentShader}
