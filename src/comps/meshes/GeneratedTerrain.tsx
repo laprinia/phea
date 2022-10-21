@@ -6,11 +6,11 @@ import { useFrame } from "@react-three/fiber";
 import { setHeightValues } from "../../util/height-functions";
 import { getMarchedResult } from "../../util/marching-functions";
 import { ISO_LEVEL } from "../../util/constants";
+
+import heightVertexShader from "../../shaders/heightVertexShader";
 import heightFragmentShader from "../../shaders/heightFragmentShader";
 import { useTexture } from "@react-three/drei";
 import grad from "./gradient.png";
-import heightVertexShader from "../../shaders/heightVertexShader";
-
 interface GeneratedTerrainProps {
   terrainData: TerrainData;
 }
@@ -35,7 +35,7 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
   };
 
   const uniforms = useMemo(() => {
-    console.log(terrainVertices);
+    //console.log(terrainVertices);
     return {
       u_gradient: {
         type: "t",
@@ -52,6 +52,9 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
         //yMax - yMin(floorset)
         //TODO make customizable
         value: 2,
+      },
+      u_time: {
+        value: 0.0,
       },
     };
   }, [gradientMap]);
@@ -97,19 +100,23 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
     setRequiresUpdate(true);
   }, []);
 
-  const terrainRef = useRef<THREE.Mesh>();
+  const terrainRef = useRef<any>();
 
-  useFrame(() => {
-    if (terrainRef.current && requiresUpdate) {
-      setRequiresUpdate(false);
-      terrainRef.current.geometry.setAttribute(
-        "position",
-        new THREE.BufferAttribute(terrainVertices.slice(0, vertexIndex), 3)
-      );
-      terrainRef.current.geometry.computeVertexNormals();
+  useFrame(({ clock }) => {
+    if (terrainRef.current && terrainRef.current.material) {
+      terrainRef.current.material.uniforms.u_time.value =
+        clock.getElapsedTime();
+      if (requiresUpdate) {
+        setRequiresUpdate(false);
+        terrainRef.current.geometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(terrainVertices.slice(0, vertexIndex), 3)
+        );
+        terrainRef.current.geometry.computeVertexNormals();
 
-      terrainRef.current.geometry.attributes.position.needsUpdate = true;
-      terrainRef.current.geometry.attributes.normal.needsUpdate = true;
+        terrainRef.current.geometry.attributes.position.needsUpdate = true;
+        terrainRef.current.geometry.attributes.normal.needsUpdate = true;
+      }
     }
   });
 

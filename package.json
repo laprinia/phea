@@ -15,10 +15,14 @@
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "babel-plugin-relay": "^14.1.0",
     "drei": "^2.2.21",
     "eslint-formatter-pretty": "^4.1.0",
+    "gl-catmull-clark": "^1.0.0",
+    "glsl-noise": "^0.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-relay": "^14.1.0",
     "react-scripts": "5.0.1",
     "simplex-noise": "^3.0.1",
     "tabler-icons-react": "^1.54.0",
@@ -51,8 +55,11 @@
     ]
   },
   "devDependencies": {
+    "@types/react-relay": "^14.1.2",
     "@types/three": "^0.143.1",
+    "babel-plugin-glsl": "^1.0.0",
     "eslint": "^8.21.0",
+    "glslify": "^7.1.1",
     "prettier": "2.7.1"
   }
 }

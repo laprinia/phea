@@ -1,6 +1,7 @@
 import { edgeTable, triangulationTable } from "./table-data";
 import { lerp, set3DArray } from "./misc-functions";
 import { MarchingResult } from "./types";
+const catmullClark = require("gl-catmull-clark");
 
 export const getMarchedResult = (
   maxArray: number[],
