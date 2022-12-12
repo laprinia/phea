@@ -2,7 +2,7 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import GeneratedTerrain from "../meshes/GeneratedTerrain";
-import PostProcessing from "./PostProcessing";
+import PostProcessing from "./post/PostProcessing";
 
 function Viewport() {
   return (
