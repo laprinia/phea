@@ -53,7 +53,7 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
         type: "f",
         //yMax - yMin(floorset)
         //TODO make customizable
-        value: 1.1,
+        value: 1.3,
       },
       u_time: {
         value: 0.0,
