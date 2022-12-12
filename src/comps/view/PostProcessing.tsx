@@ -1,25 +1,30 @@
+import React from "react";
 import {
-  Bloom,
-  BrightnessContrast,
-  DepthOfField,
-  HueSaturation,
-  Noise,
+    EffectComposer,
+    Bloom,
+    Noise, DepthOfField, ToneMapping, TiltShift, BrightnessContrast,
 } from "@react-three/postprocessing";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
-import { Canvas, extend } from "react-three-fiber";
-import { Effects } from "@react-three/drei";
-import { BloomPass } from "three/examples/jsm/postprocessing/BloomPass";
-import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass";
-extend({ GlitchPass, BloomPass });
 
 function PostProcessing() {
   return (
-    <Effects disableGamma>
-      <BloomPass attachArray="passes" />
-      <glitchPass attachArray="passes" />
-    </Effects>
+    <EffectComposer multisampling={0}>
+        <TiltShift/>
+        <ToneMapping/>
+        <BrightnessContrast/>
+        <DepthOfField
+            focusDistance={0}
+            focalLength={0.5}
+            bokehScale={1}
+            height={480}
+        />
+        <Bloom
+            luminanceThreshold={0}
+            luminanceSmoothing={0.9}
+            height={300}
+            intensity={0.1}
+        />
+        <Noise opacity={0.045} />
+    </EffectComposer>
   );
 }
 export default PostProcessing;

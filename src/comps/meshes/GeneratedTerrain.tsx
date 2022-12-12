@@ -11,6 +11,7 @@ import heightVertexShader from "../../shaders/heightVertexShader";
 import heightFragmentShader from "../../shaders/heightFragmentShader";
 import { useTexture } from "@react-three/drei";
 import grad from "./gradient.png";
+import { sRGBEncoding } from "three";
 interface GeneratedTerrainProps {
   terrainData: TerrainData;
 }
@@ -21,6 +22,7 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
   const [vertexIndex, setVertexIndex] = useState(0);
   const [requiresUpdate, setRequiresUpdate] = useState(false);
   const gradientMap = useTexture(grad);
+  gradientMap.encoding = sRGBEncoding;
   const setField = (
     arr2: number[],
     i: number,
