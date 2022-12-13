@@ -18,6 +18,7 @@ interface GeneratedTerrainProps {
 const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
   const { width, height, depth, sampleSize } = props.terrainData;
   let fieldBuffer = new Float32Array();
+  let rotationSpeed = 0.2;
   const [terrainVertices, setTerrainVertices] = useState(new Float32Array());
   const [vertexIndex, setVertexIndex] = useState(0);
   const [requiresUpdate, setRequiresUpdate] = useState(false);
@@ -53,7 +54,7 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
         type: "f",
         //yMax - yMin(floorset)
         //TODO make customizable
-        value: 1.3,
+        value: 1.2,
       },
       u_time: {
         value: 0.0,
@@ -108,6 +109,7 @@ const GeneratedTerrain: React.FC<GeneratedTerrainProps> = (props) => {
     if (terrainRef.current && terrainRef.current.material) {
       terrainRef.current.material.uniforms.u_time.value =
         clock.getElapsedTime();
+      terrainRef.current.rotation.y=clock.getElapsedTime() * rotationSpeed;
       if (requiresUpdate) {
         setRequiresUpdate(false);
         terrainRef.current.geometry.setAttribute(
