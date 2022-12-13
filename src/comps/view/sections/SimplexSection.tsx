@@ -6,14 +6,14 @@ function SimplexSection() {
   return (
     <ScrollSection title={"Simplex Noise"}>
       <Group spacing={1}>
-        <Text size={"sm"}>octaves</Text>
+        <Text size={"xs"}>octaves</Text>
         <Slider
-          defaultValue={2}
+          defaultValue={6}
           min={2}
           max={8}
-          sx={{ width: "99%", boxSizing: "border-box" }}
-          size="sm"
-          radius="sm"
+          sx={{ width: "97%", boxSizing: "border-box" }}
+          size="xs"
+          radius="xs"
           showLabelOnHover={true}
           color="blueGray"
           marks={[
@@ -24,15 +24,15 @@ function SimplexSection() {
         />
       </Group>
       <Group spacing={1}>
-        <Text size={"sm"}>octave persistence</Text>
+        <Text size={"xs"}>octave persistence</Text>
         <Slider
-          defaultValue={1}
+          defaultValue={0.5}
           min={0}
           max={1}
           step={0.1}
-          sx={{ width: "99%", boxSizing: "border-box" }}
-          size="sm"
-          radius="sm"
+          sx={{ width: "97%", boxSizing: "border-box" }}
+          size="xs"
+          radius="xs"
           showLabelOnHover={true}
           color="blueGray"
           marks={[
@@ -43,56 +43,61 @@ function SimplexSection() {
         />
       </Group>
       <Group spacing={1}>
-        <Text size={"sm"}>octave detail</Text>
+        <Text size={"xs"}>octave detail</Text>
         <Slider
-          defaultValue={1}
+          defaultValue={2}
           min={1}
-          max={10}
-          sx={{ width: "99%" }}
-          size="sm"
-          radius="sm"
+          max={5}
+          step={0.1}
+          sx={{ width: "97%" }}
+          size="xs"
+          radius="xs"
           showLabelOnHover={true}
           color="blueGray"
           marks={[
             { value: 1, label: "1" },
             { value: 5, label: "5" },
-            { value: 10, label: "10" },
           ]}
         />
       </Group>
       <Group spacing={1}>
-        <Text size={"sm"}>noise weight</Text>
+        <Text size={"xs"}>noise weight</Text>
         <Slider
-          defaultValue={1}
-          min={4}
-          max={20}
-          sx={{ width: "99%" }}
-          size="sm"
-          radius="sm"
+          defaultValue={9.1}
+          min={6}
+          max={14}
+          step={0.1}
+          sx={{ width: "97%" }}
+          size="xs"
+          radius="xs"
           showLabelOnHover={true}
           color="blueGray"
           marks={[
-            { value: 4, label: "4" },
-            { value: 12, label: "12" },
-            { value: 20, label: "20" },
+            { value: 6, label: "6" },
+            { value: 8, label: "8" },
+            { value: 10, label: "10" },
+              { value: 12, label: "12" },
+              { value: 14, label: "14" },
           ]}
         />
       </Group>
       <Group spacing={1}>
-        <Text size={"sm"}>weight multiplier</Text>
+        <Text size={"xs"}>weight multiplier</Text>
         <Slider
-          defaultValue={1}
+          defaultValue={1.8}
           min={1}
-          max={10}
-          sx={{ width: "99%" }}
-          size="sm"
-          radius="sm"
+          max={5}
+
+          step={0.1}
+          sx={{ width: "97%" }}
+          size="xs"
+          radius="xs"
           showLabelOnHover={true}
           color="blueGray"
           marks={[
             { value: 1, label: "1" },
+            { value: 3, label: "3" },
             { value: 5, label: "5" },
-            { value: 10, label: "10" },
           ]}
         />
       </Group>
