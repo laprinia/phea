@@ -12,27 +12,21 @@ import React from "react";
 
 function HeaderSection() {
   return (
+
     <Group
-      spacing={1}
+      spacing={6}
       sx={{
         paddingTop: "2px",
-        paddingRight: "10px",
+        paddingRight: "15px",
         position: "sticky",
         width: "18.1vw",
         zIndex: 1,
+        justifyContent:"space-between"
       }}
     >
-      <Group spacing={1} position={"apart"}>
         <Text size="md" weight={500}>
-          Properties
+          All Properties
         </Text>
-
-        <Divider
-          sx={{ height: "24px", alignSelf: "center" }}
-          orientation="vertical"
-        />
-      </Group>
-
       <HoverCard width={100} shadow="md">
         <HoverCard.Target>
           <ActionIcon variant="subtle" color="blueGray" size="xl">

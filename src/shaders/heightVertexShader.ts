@@ -13,7 +13,7 @@ void main() {
 worldPos =  vec4(position, 1.0);
 float noiseFreq = 0.004;
 float noiseAmp = 0.7;
-vec3 noisePos = vec3(worldPos.x* noiseFreq + u_time/100.0, worldPos.y,worldPos.z* noiseFreq + u_time);
+vec3 noisePos = vec3(worldPos.x * noiseFreq + u_time/100.0, worldPos.y,worldPos.z* noiseFreq + u_time);
 wave = worldPos.y;
 worldPos.y += snoise3(noisePos) * noiseAmp ;
 
