@@ -1,4 +1,4 @@
-import {ColorInput, Grid, Group, Space, Text} from "@mantine/core";
+import {ColorInput, Grid} from "@mantine/core";
 import ScrollSection from "./ScrollSection";
 import React from "react";
 
