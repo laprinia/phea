@@ -6,6 +6,8 @@ import {
 import SimplexSection from "./sections/SimplexSection";
 import React from "react";
 import HeaderSection from "./sections/HeaderSection";
+import TerrainSection from "./sections/TerrainSection";
+import GradientSection from "./sections/GradientSection";
 
 function SideSection() {
   return (
@@ -25,6 +27,10 @@ function SideSection() {
       <Space h={1} />
       <HeaderSection />
       <ScrollArea style={{ height: "60.5vh", width: "100%" }} type={"scroll"}>
+          <GradientSection/>
+          <Space h={10} />
+          <TerrainSection/>
+          <Space h={35} />
         <SimplexSection />
       </ScrollArea>
     </Stack>
