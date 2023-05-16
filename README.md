@@ -6,7 +6,7 @@ React 3D terrain generation using R3F --written in TypeScript.
 ### 👩‍🍳Frontend Recipe:
   * react three fiber, a React renderer for three.js
   * drei addons for react three fiber
-  * glsl-noise, for Simplex nois
+  * glsl-noise, for Simplex noise
   * Mantine for UI components
  
 ### 🗝️Key Feats:
