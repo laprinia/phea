@@ -2,17 +2,29 @@ import {ColorInput, Grid} from "@mantine/core";
 import ScrollSection from "./ScrollSection";
 import React from "react";
 
-function GradientSection() {
+const HEX_COLOR = /^#([0-9a-f]{3}){1,2}$/i;
+
+interface GradientSectionProps {
+    gradient: string[];
+    onChange: (index: number, color: string) => void;
+}
+
+function GradientSection({gradient, onChange}: GradientSectionProps) {
     return (
         <ScrollSection title={"Gradient"} spaceBetween={5}>
             <Grid gutter="xs">
-                <Grid.Col span={6}><ColorInput defaultValue="#F4490F" size={"xs"}/></Grid.Col>
-                <Grid.Col span={6}><ColorInput defaultValue="#9FAFBC" size={"xs"}/></Grid.Col>
-                <Grid.Col span={6}><ColorInput defaultValue="#2D5871" size={"xs"}/></Grid.Col>
-                <Grid.Col span={6}><ColorInput defaultValue="#255B46" size={"xs"}/></Grid.Col>
-                <Grid.Col span={6}><ColorInput defaultValue="#0D130F" size={"xs"}/></Grid.Col>
-                <Grid.Col span={6}><ColorInput defaultValue="#0F1C17" size={"xs"}/></Grid.Col>
-                <Grid.Col span={6}><ColorInput defaultValue="#0A0A0A" size={"xs"}/></Grid.Col>
+                {gradient.map((color, index) => (
+                    <Grid.Col span={6} key={index}>
+                        <ColorInput
+                            defaultValue={color}
+                            size={"xs"}
+                            onChange={(value) => {
+                                //the input also reports half typed colors
+                                if (HEX_COLOR.test(value)) onChange(index, value);
+                            }}
+                        />
+                    </Grid.Col>
+                ))}
             </Grid>
         </ScrollSection>
     );

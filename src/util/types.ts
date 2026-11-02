@@ -15,6 +15,11 @@ export type SimplexValues = {
   noiseWeight: number;
   terracingLevel: number;
 };
+export type TerrainRequest = {
+  terrainData: TerrainData;
+  simplexValues: SimplexValues;
+  seed: number;
+};
 export type MarchingResult = {
   terrainVertices: Float32Array;
   counterIndex: number;

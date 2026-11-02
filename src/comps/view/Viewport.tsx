@@ -3,8 +3,23 @@ import {Canvas} from "@react-three/fiber";
 import React from "react";
 import GeneratedTerrain from "../meshes/GeneratedTerrain";
 import PostProcessing from "../meshes/post/PostProcessing";
+import {SimplexValues, TerrainData} from "../../util/types";
 
-function Viewport() {
+interface ViewportProps {
+    terrainData: TerrainData;
+    simplexValues: SimplexValues;
+    seed: number;
+    rotationSpeed: number;
+    gradient: string[];
+}
+
+function Viewport({
+                      terrainData,
+                      simplexValues,
+                      seed,
+                      rotationSpeed,
+                      gradient,
+                  }: ViewportProps) {
     return (
         <Canvas
             style={{background: "#0e0e0e"}}
@@ -16,7 +31,11 @@ function Viewport() {
             <ambientLight intensity={0.2} position={[0, 45, 25]}/>
             <directionalLight position={[0, 45, 25]} intensity={0.6}/>
             <GeneratedTerrain
-                terrainData={{width: 100, height: 100, depth: 100, sampleSize: 1}}
+                terrainData={terrainData}
+                simplexValues={simplexValues}
+                seed={seed}
+                rotationSpeed={rotationSpeed}
+                gradient={gradient}
             />
         </Canvas>
     );

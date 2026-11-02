@@ -1,14 +1,28 @@
 import {Group, Slider, Text} from "@mantine/core";
 import ScrollSection from "./ScrollSection";
 import React from "react";
+import {TerrainData} from "../../../util/types";
 
-function TerrainSection() {
+interface TerrainSectionProps {
+    terrainData: TerrainData;
+    rotationSpeed: number;
+    onChange: (values: Partial<TerrainData>) => void;
+    onRotationSpeedChange: (value: number) => void;
+}
+
+function TerrainSection({
+                            terrainData,
+                            rotationSpeed,
+                            onChange,
+                            onRotationSpeedChange,
+                        }: TerrainSectionProps) {
     return (
         <ScrollSection title={"Terrain"} spaceBetween={1}>
             <Group spacing={1}>
                 <Text size={"xs"}>size</Text>
                 <Slider
-                    defaultValue={100}
+                    defaultValue={terrainData.width}
+                    onChange={(value) => onChange({width: value, depth: value})}
                     min={100}
                     max={600}
                     sx={{width: "97%", boxSizing: "border-box"}}
@@ -26,7 +40,8 @@ function TerrainSection() {
             <Group spacing={1}>
                 <Text size={"xs"}>sample size</Text>
                 <Slider
-                    defaultValue={1}
+                    defaultValue={terrainData.sampleSize}
+                    onChange={(value) => onChange({sampleSize: value})}
                     min={1}
                     max={5}
                     step={0.1}
@@ -45,7 +60,8 @@ function TerrainSection() {
             <Group spacing={1}>
                 <Text size={"xs"}>rotation speed</Text>
                 <Slider
-                    defaultValue={3}
+                    defaultValue={rotationSpeed}
+                    onChange={onRotationSpeedChange}
                     min={1}
                     max={10}
                     step={0.1}

@@ -28,7 +28,7 @@ After terracing, our terrain looks something like this:
 
 ![image](https://github.com/laprinia/phea/assets/51471463/768767e8-9909-4381-beaa-f6cf9d543175)
 
-* <h3>🌈Color Height Map</h3> A .png holds a color gradient which is used to color each fragment in the fragment shader!
+* <h3>🌈Color Height Map</h3> A canvas texture holds the color gradient set in the UI, which is used to color each fragment in the fragment shader!
 ![gradient](https://github.com/laprinia/phea/assets/51471463/6f8294ae-7fa9-4acc-93e5-d1ebf824c8c6)
 
 ```glsl

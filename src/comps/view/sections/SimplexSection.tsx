@@ -1,14 +1,21 @@
 import {Group, Slider, Text} from "@mantine/core";
 import ScrollSection from "./ScrollSection";
 import React from "react";
+import {SimplexValues} from "../../../util/types";
 
-function SimplexSection() {
+interface SimplexSectionProps {
+    values: SimplexValues;
+    onChange: (values: Partial<SimplexValues>) => void;
+}
+
+function SimplexSection({values, onChange}: SimplexSectionProps) {
     return (
         <ScrollSection title={"Simplex Noise"} spaceBetween={1}>
             <Group spacing={1}>
                 <Text size={"xs"}>octaves</Text>
                 <Slider
-                    defaultValue={6}
+                    defaultValue={values.octaves}
+                    onChange={(value) => onChange({octaves: value})}
                     min={2}
                     max={8}
                     sx={{width: "97%", boxSizing: "border-box"}}
@@ -26,7 +33,8 @@ function SimplexSection() {
             <Group spacing={1}>
                 <Text size={"xs"}>octave persistence</Text>
                 <Slider
-                    defaultValue={0.5}
+                    defaultValue={values.persistencePerOctave}
+                    onChange={(value) => onChange({persistencePerOctave: value})}
                     min={0}
                     max={1}
                     step={0.1}
@@ -45,7 +53,8 @@ function SimplexSection() {
             <Group spacing={1}>
                 <Text size={"xs"}>octave detail</Text>
                 <Slider
-                    defaultValue={2}
+                    defaultValue={values.detailPerOctave}
+                    onChange={(value) => onChange({detailPerOctave: value})}
                     min={1}
                     max={5}
                     step={0.1}
@@ -63,7 +72,8 @@ function SimplexSection() {
             <Group spacing={1}>
                 <Text size={"xs"}>noise weight</Text>
                 <Slider
-                    defaultValue={9.1}
+                    defaultValue={values.noiseWeight}
+                    onChange={(value) => onChange({noiseWeight: value})}
                     min={6}
                     max={14}
                     step={0.1}
@@ -84,7 +94,8 @@ function SimplexSection() {
             <Group spacing={1}>
                 <Text size={"xs"}>weight multiplier</Text>
                 <Slider
-                    defaultValue={1.8}
+                    defaultValue={values.weightMultiplier}
+                    onChange={(value) => onChange({weightMultiplier: value})}
                     min={1}
                     max={5}
 

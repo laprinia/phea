@@ -8,8 +8,31 @@ import React from "react";
 import HeaderSection from "./sections/HeaderSection";
 import TerrainSection from "./sections/TerrainSection";
 import GradientSection from "./sections/GradientSection";
+import {SimplexValues, TerrainData} from "../../util/types";
 
-function SideSection() {
+interface SideSectionProps {
+    terrainData: TerrainData;
+    simplexValues: SimplexValues;
+    rotationSpeed: number;
+    gradient: string[];
+    onTerrainChange: (values: Partial<TerrainData>) => void;
+    onSimplexChange: (values: Partial<SimplexValues>) => void;
+    onRotationSpeedChange: (value: number) => void;
+    onGradientChange: (index: number, color: string) => void;
+    onRegenerate: () => void;
+}
+
+function SideSection({
+                         terrainData,
+                         simplexValues,
+                         rotationSpeed,
+                         gradient,
+                         onTerrainChange,
+                         onSimplexChange,
+                         onRotationSpeedChange,
+                         onGradientChange,
+                         onRegenerate,
+                     }: SideSectionProps) {
     return (
         <Stack
             align="start"
@@ -25,13 +48,18 @@ function SideSection() {
             }}
         >
             <Space h={1}/>
-            <HeaderSection/>
+            <HeaderSection onRegenerate={onRegenerate}/>
             <ScrollArea style={{height: "60.5vh", width: "100%"}} type={"scroll"}>
-                <GradientSection/>
+                <GradientSection gradient={gradient} onChange={onGradientChange}/>
                 <Space h={10}/>
-                <TerrainSection/>
+                <TerrainSection
+                    terrainData={terrainData}
+                    rotationSpeed={rotationSpeed}
+                    onChange={onTerrainChange}
+                    onRotationSpeedChange={onRotationSpeedChange}
+                />
                 <Space h={35}/>
-                <SimplexSection/>
+                <SimplexSection values={simplexValues} onChange={onSimplexChange}/>
             </ScrollArea>
         </Stack>
     );

@@ -10,7 +10,11 @@ import {
 import {SymbolIcon} from "@radix-ui/react-icons";
 import React from "react";
 
-function HeaderSection() {
+interface HeaderSectionProps {
+    onRegenerate: () => void;
+}
+
+function HeaderSection({onRegenerate}: HeaderSectionProps) {
     return (
 
         <Group
@@ -29,7 +33,12 @@ function HeaderSection() {
             </Text>
             <HoverCard width={100} shadow="md">
                 <HoverCard.Target>
-                    <ActionIcon variant="subtle" color="blueGray" size="xl">
+                    <ActionIcon
+                        variant="subtle"
+                        color="blueGray"
+                        size="xl"
+                        onClick={onRegenerate}
+                    >
                         <SymbolIcon/>
                     </ActionIcon>
                 </HoverCard.Target>

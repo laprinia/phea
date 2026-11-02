@@ -3,6 +3,9 @@ import { lerp, set3DArray } from "./misc-functions";
 import { MarchingResult } from "./types";
 const catmullClark = require("gl-catmull-clark");
 
+//a single cube produces at most 5 triangles
+const MAX_CUBE_FLOATS = 5 * 3 * 3;
+
 export const getMarchedResult = (
   maxArray: number[],
   isoLevel: number,
@@ -10,7 +13,7 @@ export const getMarchedResult = (
   getField: Function
 ): MarchingResult => {
   let terrainVertices = new Float32Array(
-    maxArray[0] * maxArray[1] * maxArray[2] * 8 * 12 * 3
+    maxArray[0] * maxArray[2] * 4 * MAX_CUBE_FLOATS
   );
   let edges = [];
   for (let i = 0; i < 12; i++) {
@@ -149,6 +152,12 @@ export const getMarchedResult = (
         if (edgeIndex & 2048) {
           mu = (isoLevel - v3) / (v7 - v3);
           set3DArray(edges[11], x, lerp(y, y + sampleSize, mu), z + sampleSize);
+        }
+
+        if (counterIndex + MAX_CUBE_FLOATS > terrainVertices.length) {
+          const grownVertices = new Float32Array(terrainVertices.length * 2);
+          grownVertices.set(terrainVertices);
+          terrainVertices = grownVertices;
         }
 
         const triLen = triangulationTable[cubeIndex];
